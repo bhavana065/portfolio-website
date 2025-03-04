@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio Website</title>
+    <link rel="stylesheet"  href="style.css">
+</head>    
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logoo.png" class="logo">
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Frontend Developer</p>
+            <h1>Hi, I'm Bhavana Mareedu </h1>
+        </div>
+    </div>
+</div> 
+
+<!-- About Section -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Hi, I'm Bhavana, a final-year Computer Science and Engineering student passionate about frontend development and blockchain technology. I aim to combine my technical skills with creativity to build user-friendly, impactful applications. Outside of coding, I enjoy exploring new music genres, experimenting with recipes in the kitchen, and expressing myself through drawing and art. I’m also an avid reader, diving into books on technology, self-development, and fiction. During my downtime, I unwind with gaming. In addition to my academic pursuits, I’m constantly developing new skills, contributing to open-source projects, and collaborating on innovative ideas to push the boundaries of what I can create.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Learning Section -->
+<div id="learning">
+    <div class="container">
+        <h1 class="sub-title">What I'm Learning</h1>
+        <div class="learning-list">
+            <div>
+                <h2>Frontend Development</h2>
+                <p>I'm currently honing my skills in frontend development, working with technologies like HTML, CSS, JavaScript, and React to create dynamic and user-friendly web applications.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>Blockchain Technology</h2>
+                <p>I'm exploring the world of blockchain, learning about smart contracts, decentralized applications (dApps), and how blockchain is transforming industries.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Section -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Works</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>Weather App</h3>
+                    <p>This Weather App allows users to check real-time weather forecasts for any location. It fetches data from a weather API and displays details like temperature, humidity, wind speed, and more. Users can search for their city and get up-to-date weather information.</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Education App</h3>
+                    <p>This Education App is designed to help students access educational resources, track their progress, and stay organized. It includes features like course schedules, study materials, and progress tracking. Users can easily navigate through different subjects, take quizzes, and track their learning journey.</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Sustainable Food App</h3>
+                    <p>This Sustainable Food App helps users make environmentally-conscious food choices by providing information on sustainable ingredients, eco-friendly recipes, and tips for reducing food waste. It offers suggestions based on seasonal produce and local food sources, promoting sustainability in everyday meals.</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p>bhavanamareedhu@gmail.com</p>
+                <p>+91 9154419518</p>
+                <div class="social-icons">
+                    <!-- Add social links if any -->
+                </div>
+                <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2025 Bhavana Mareedu. All Rights Reserved. | Made with ❤️ by Bhavana</p>
+    </div>
+</div>
+
+<script>
+    const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';  // Replace with your Google Apps Script URL
+    const form = document.forms['submit-to-google-sheet'];
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => {
+            console.log('Success!', response);
+            alert('Form submitted successfully!');
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert('There was an error submitting the form.');
+        });
+    });
+</script>
+</body>
+</html>
