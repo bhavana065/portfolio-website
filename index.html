@@ -8,14 +8,14 @@
     <link rel="stylesheet"  href="style.css">
 </head>    
 <body>
-<div id="header">
+<div  id="header">
     <div class="container">
         <nav>
             <img src="images/logoo.png" class="logo">
             <ul>
                 <li><a href="#header">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#learning">Learning</a></li>
+                <li><a href="#learning">learning</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -37,12 +37,36 @@
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
                 <p>Hi, I'm Bhavana, a final-year Computer Science and Engineering student passionate about frontend development and blockchain technology. I aim to combine my technical skills with creativity to build user-friendly, impactful applications. Outside of coding, I enjoy exploring new music genres, experimenting with recipes in the kitchen, and expressing myself through drawing and art. I’m also an avid reader, diving into books on technology, self-development, and fiction. During my downtime, I unwind with gaming. In addition to my academic pursuits, I’m constantly developing new skills, contributing to open-source projects, and collaborating on innovative ideas to push the boundaries of what I can create.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab(event, 'skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab(event, 'experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab(event, 'education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Python</span><br>Learning to build applications, automate tasks, and solve problems using Python.</li>
+                        <li><span>SQL</span><br>Starting to work with databases, writing basic queries, and understanding data management concepts.</li>
+                        <li><span>Frontend Developer</span><br>Web applications development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2024 - 2024</span><br>AI - ML Virtual Internship</li>
+                        <li><span>2023 - 2023</span><br>Data Analytics Process Automation Virtual Internship</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2025</span><br>Btech from Gitam University</li>
+                        <li><span>2021</span><br>Intermediate from Narayana Junior College</li>
+                        <li><span>2019</span><br>SSC from Holy Cross E.M. High School</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Learning Section -->
+<!------------------Learning---------------------------- -->
 <div id="learning">
     <div class="container">
         <h1 class="sub-title">What I'm Learning</h1>
@@ -60,8 +84,7 @@
         </div>
     </div>
 </div>
-
-<!-- Portfolio Section -->
+<!-----------------portfolio------------------------- -->
 <div id="portfolio">
     <div class="container">
         <h1 class="sub-title">My Works</h1>
@@ -71,7 +94,7 @@
                 <div class="layer">
                     <h3>Weather App</h3>
                     <p>This Weather App allows users to check real-time weather forecasts for any location. It fetches data from a weather API and displays details like temperature, humidity, wind speed, and more. Users can search for their city and get up-to-date weather information.</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                    <a href="h#"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
             <div class="work">
@@ -94,8 +117,7 @@
         <a href="#" class="btn">See more</a>
     </div>
 </div>
-
-<!-- Contact Section -->
+<!----------------------------------contact---------------->
 <div id="contact">
     <div class="container">
         <div class="row">
@@ -104,9 +126,9 @@
                 <p>bhavanamareedhu@gmail.com</p>
                 <p>+91 9154419518</p>
                 <div class="social-icons">
-                    <!-- Add social links if any -->
+                   
                 </div>
-                <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
+                <a href="images/MY Updated CV.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
@@ -122,26 +144,34 @@
         <p>© 2025 Bhavana Mareedu. All Rights Reserved. | Made with ❤️ by Bhavana</p>
     </div>
 </div>
-
 <script>
-    const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';  // Replace with your Google Apps Script URL
-    const form = document.forms['submit-to-google-sheet'];
+    function opentab(event, tabname) {
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        fetch(scriptURL, {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => {
-            console.log('Success!', response);
-            alert('Form submitted successfully!');
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            alert('There was an error submitting the form.');
-        });
-    });
+        // Remove active class from all tab links and contents
+        for (var tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for (var tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+
+        // Add active class to the clicked tab and corresponding content
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
 </script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzTW7fpXxNnNhUKtKdeWG6ZXknbKcdxwK5nzzJLGZ7lD4jKubQ2wgZU-bAK7ysMskAR2g/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>    
 </body>
 </html>
