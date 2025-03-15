@@ -1,7 +1,3 @@
-Sure! Here's an enhanced and more attractive README with added visual appeal, animations, and a touch of design to make it pop, similar to how the portfolio website might feel. Since README files are primarily text-based, I've used markdown, emoji, and formatting to make it visually engaging.
-
----
-
 # ✨ **Bhavana Mareedu - Personal Portfolio** ✨
 
 Welcome to **Bhavana Mareedu's Personal Portfolio**! 🎉 I am a **Frontend Developer** passionate about creating sleek, dynamic, and user-friendly web experiences. This portfolio showcases my journey, skills, and projects that I'm extremely proud of. 🚀
